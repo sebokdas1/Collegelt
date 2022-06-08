@@ -1,9 +1,18 @@
-import React from 'react';
-import useUsers from './useUsers';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
-    const [users] = useUsers()
-
+    const [users, setUsers] = useState([]);
+    const navigate = useNavigate();
+    useEffect(() => {
+        fetch('https://randomuser.me/api/?results=10')
+            .then(res => res.json())
+            .then(data => setUsers(data?.results))
+    }, [])
+    const handleUser = (user) => {
+        navigate('/user-route')
+        localStorage.setItem('user', user)
+    }
     return (
         <div>
             <h2>{users?.length}</h2>
@@ -24,7 +33,7 @@ const Home = () => {
                         <tbody>
                             {
                                 users.map((user, index) =>
-                                    <tr key={user.email} className="hover">
+                                    <tr key={user.email} className="hover" onClick={() => handleUser(user)}>
                                         <th>{index + 1}</th>
                                         <td>{user?.name?.title} {user.name.first} {user?.name?.last}</td>
                                         <td>{user?.gender}</td>
