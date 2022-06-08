@@ -5,7 +5,7 @@ import User from './pages/Home/User';
 
 function App() {
   return (
-    <div className="App">
+    <div className="">
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='user-route' element={<User />} />

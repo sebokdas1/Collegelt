@@ -11,13 +11,12 @@ const Home = () => {
     }, [])
     const handleUser = (user) => {
         navigate('/user-route')
-        localStorage.setItem('user', user)
+        localStorage.setItem('user', JSON.stringify(user))
     }
     return (
         <div>
-            <h2>{users?.length}</h2>
 
-            <div className='container mx-auto'>
+            <div className='container mx-auto mt-10'>
                 <div class="overflow-x-auto">
                     <table class="table table-compact w-full">
                         <thead>
@@ -33,7 +32,7 @@ const Home = () => {
                         <tbody>
                             {
                                 users.map((user, index) =>
-                                    <tr key={user.email} className="hover" onClick={() => handleUser(user)}>
+                                    <tr key={user.email} className="hover cursor-pointer" onClick={() => handleUser(user)}>
                                         <th>{index + 1}</th>
                                         <td>{user?.name?.title} {user.name.first} {user?.name?.last}</td>
                                         <td>{user?.gender}</td>
