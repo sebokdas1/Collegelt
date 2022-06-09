@@ -14,7 +14,7 @@ const Home = () => {
         localStorage.setItem('user', JSON.stringify(user))
     }
     return (
-        <div>
+        <div className=''>
 
             <div className='container mx-auto mt-10'>
                 <div class="overflow-x-auto">
