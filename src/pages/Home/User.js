@@ -28,9 +28,9 @@ const User = () => {
                     <img src={user?.picture?.large} class="w-1/3 rounded-lg shadow-2xl" alt='img' />
                     <div>
                         <h1 class="text-5xl font-bold">{user?.name?.title} {user?.name?.first} {user?.name?.last}</h1>
-                        <p class="py-6">phone: {user?.phone}</p>
-                        <p>Date Of Birth: {user?.dob?.date}</p>
-                        <p>Next Birthday: {days} days left</p>
+                        <p class="py-6"><span className='font-bold'>Phone:</span> {user?.phone}</p>
+                        <p><span className='font-bold'>Date Of Birth:</span> {user?.dob?.date}</p>
+                        <p><span className='font-bold'>Next Birthday:</span> {days} days left</p>
 
                     </div>
                 </div>
